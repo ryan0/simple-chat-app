@@ -1,0 +1,16 @@
+{
+  "name": "simple-chat-app",
+  "version": "1.0.0",
+  "description": "simple chat app using socketIO",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Ryan Miller",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  }
+}
