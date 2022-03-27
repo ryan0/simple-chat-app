@@ -39,7 +39,7 @@ app.post('/login', (req, res) => {
 httpServer.listen(process.env.PORT, () => {
     console.log('listening on 3000');
 });
-httpsServer.listen(HTTPS_PORT, () => {
+httpsServer.listen(process.env.HTTPS_PORT, () => {
     console.log('listening on 80');
 });
 
