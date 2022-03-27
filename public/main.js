@@ -1,5 +1,5 @@
 let loginForm = document.getElementById('login-form');
-let authToken = "";
+let authToken = '';
 
 loginForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -21,7 +21,7 @@ loginForm.addEventListener('submit', e => {
                 userAuthenticated();
             });
         } else {
-            console.log("HTTP status code: " + response.status);
+            console.log('HTTP status code: ' + response.status);
         }
     });
 });
@@ -88,6 +88,8 @@ function userAuthenticated() {
     peerConnection.addEventListener('icecandidate', e => {
         if(e.candidate) {
             socket.emit('candidate', e.candidate);
+            console.log('emit ice candidate');
+            console.log(e.candidate);
         }
     });
     peerConnection.addEventListener('connectionstatechange', e => {
@@ -100,17 +102,27 @@ function userAuthenticated() {
         const offer = await peerConnection.createOffer();
         await peerConnection.setLocalDescription(offer);
         socket.emit('offer', offer);
+        console.log('send offer');
+        console.log(offer);
     }
     async function handleOffer(offer) {
+        console.log('recieved offer');
+        console.log(offer);
         await peerConnection.setRemoteDescription(offer);
         const answer = await peerConnection.createAnswer();
         await peerConnection.setLocalDescription(answer);
         socket.emit('answer', answer);
+        console.log('sent answer');
+        console.log(answer);
     }
     async function handleAnswer(answer) {
+        console.log('received answer');
+        console.log(answer);
         await peerConnection.setRemoteDescription(answer);
     }
     async function handleCandidate(candidate) {
+        console.log('received candidate');
+        console.log(candidate);
         if (!candidate.candidate) {
             await peerConnection.addIceCandidate(null);
         } else {
