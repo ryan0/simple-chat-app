@@ -9,10 +9,24 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
-    </form>
+    <div id="login">
+      <form id="login-form" action="">
+        <h3>Login</h3>
+        <input id="username" autocomplete="off" placeholder="username"/> <br>
+        <input id="password" autocomplete="off" placeholder="password"/> <br>
+        <button>Submit</button>
+      </form>
+    </div>
+    <button id="test-auth">Test Auth</button>
+    <button id="test-offer">Test Offer</button>
+    <video id="localVideo" playsinline autoplay muted></video>
+    <video id="remoteVideo" playsinline autoplay></video>
+    <div id="chat-app" class="hide">
+      <ul id="messages"></ul>
+      <form id="form" action="">
+        <input id="input" autocomplete="off" /><button>Send</button>
+      </form>
+    </div>
     <script src="main.js" type="module"></script>
   </body>
 </html>
