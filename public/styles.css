@@ -56,12 +56,29 @@ body {
 #messages > li { 
     padding: 0.5rem 1rem;
     word-wrap: break-word;
+    background: rgba(200, 200, 200, 0.15);
 }
 
 #messages > li:nth-child(odd) { 
-    background: #efefef; 
+    background: rgba(255, 255, 255, 0.4); 
 }
 
 .hide {
     display: none;
+}
+
+.video {
+    position: fixed;
+    top: 0;
+}
+
+#remoteVideo {
+    z-index: -1;
+    left: 0;
+    width: 100%;
+}
+
+#localVideo {
+    right: 0;
+    width: 20%;
 }

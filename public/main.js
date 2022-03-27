@@ -109,4 +109,21 @@ function userAuthenticated() {
             await peerConnection.addIceCandidate(candidate);
         }
     }
+
+    document.getElementById('toggle-video').addEventListener('click', () => {
+        const videoTrack = localStream.getTracks().find(track => track.kind === 'video');
+        if (videoTrack.enabled) {
+            videoTrack.enabled = false;
+        } else {
+            videoTrack.enabled = true;
+        }
+    });
+    document.getElementById('toggle-audio').addEventListener('click', () => {
+        const audioTrack = localStream.getTracks().find(track => track.kind === 'audio');
+        if (audioTrack.enabled) {
+            audioTrack.enabled = false;
+        } else {
+            audioTrack.enabled = true;
+        }
+    });
 }
