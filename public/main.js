@@ -69,7 +69,15 @@ function userAuthenticated() {
     const localVideo = document.getElementById('localVideo');
     const remoteVideo = document.getElementById('remoteVideo');
 
-    const peerConnection = new RTCPeerConnection();
+    var peerConnectionConfig = {
+        'iceServers': [
+            {'urls': 'stun:stun.l.google.com:19302'},
+            {'urls': 'stun:stun1.l.google.com:19302'},
+            {'urls': 'stun:stun2.l.google.com:19302'}
+        ]
+    };
+
+    const peerConnection = new RTCPeerConnection(peerConnectionConfig);
     let localStream;
     navigator.mediaDevices.getUserMedia({audio: true, video: true}).then( function(stream) {
         localStream = stream;
